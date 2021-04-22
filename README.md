@@ -1,2 +1,2 @@
 # EnNote
-A notebook allows encryption and many conviences.
+A notebook allows encryption and many conveniences.
