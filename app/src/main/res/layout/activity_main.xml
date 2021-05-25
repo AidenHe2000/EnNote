@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/color_primary"
-                app:popupTheme="@color/text_color_primary_dark"/>
+                app:popupTheme="@color/text_color_primary_dark" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <!--Fragment-->

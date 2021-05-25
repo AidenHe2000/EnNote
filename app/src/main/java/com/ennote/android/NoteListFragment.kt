@@ -19,7 +19,7 @@ import java.util.*
 class NoteListFragment : Fragment() {
 
     interface Callbacks {
-        fun onNoteSelected(noteId: UUID)
+        fun onNoteSelected(noteId: UUID, isEncrypted: Boolean)
     }
 
     private var callbacks: Callbacks? = null
@@ -69,9 +69,10 @@ class NoteListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         floatingActionButton.setOnClickListener {
+            //Create new note
             val note = Note()
             noteListViewModel.addNote(note)
-            callbacks?.onNoteSelected(note.id)
+            callbacks?.onNoteSelected(note.id, false)
         }
     }
 
@@ -109,7 +110,7 @@ class NoteListFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            callbacks?.onNoteSelected(note.id)
+            callbacks?.onNoteSelected(note.id, note.isEncrypted)
         }
     }
 
