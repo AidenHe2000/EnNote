@@ -3,7 +3,6 @@ package com.ennote.android
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,7 +12,6 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 private const val TAG = "NoteFragment"
@@ -199,12 +197,23 @@ class NoteFragment : Fragment(), DatePickerFragment.Callbacks {
 
     private fun updateUI() {
         titleField.setText(note.title)
-        endDateButton.text = note.endDate.toString()
+        endDateButton.text = dateToString(note.endDate)
         encryptionCheckBox.isChecked = note.isEncrypted
         noteContent.setText(note.content)
         if (note.imageUri != null) {
             context?.let { Glide.with(it).load(note.imageUri).into(imageView) }
         }
+    }
+
+    private fun dateToString(date: Date): String {
+        Log.d("dateToString", "$date")
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.time = date
+        return "${calendar.get(Calendar.YEAR)} ${calendar.get(Calendar.MONTH) + 1} ${
+            calendar.get(
+                Calendar.DAY_OF_MONTH
+            )
+        }"
     }
 
     companion object {

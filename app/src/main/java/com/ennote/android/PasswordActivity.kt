@@ -32,7 +32,6 @@ class PasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password)
         toolbar = findViewById(R.id.password_toolbar)
-        toolbar.title = "Password generator"
         setSupportActionBar(toolbar)
 
         resultPassword = findViewById(R.id.result_password)

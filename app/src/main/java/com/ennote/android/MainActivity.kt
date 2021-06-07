@@ -3,6 +3,7 @@ package com.ennote.android
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.hardware.biometrics.BiometricPrompt
 import androidx.appcompat.app.AppCompatActivity
@@ -25,25 +26,6 @@ class MainActivity : AppCompatActivity(), NoteListFragment.Callbacks, NoteFragme
 
     private var cancellationSignal: CancellationSignal? = null
 
-    private inner class AuthenticationCallback(private val noteId: UUID) :
-        BiometricPrompt.AuthenticationCallback() {
-        override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
-            super.onAuthenticationError(errorCode, errString)
-            notifyUser("Authentication Error: $errString")
-        }
-
-        override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
-            super.onAuthenticationSucceeded(result)
-            //验证通过跳转
-            val fragment = NoteFragment.newInstance(noteId)
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,7 +33,6 @@ class MainActivity : AppCompatActivity(), NoteListFragment.Callbacks, NoteFragme
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
 
-        toolbar.title = "Note List"
         setSupportActionBar(toolbar)
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
@@ -64,6 +45,10 @@ class MainActivity : AppCompatActivity(), NoteListFragment.Callbacks, NoteFragme
             when (it.itemId) {
                 R.id.password_generator -> {
                     startActivity(Intent(this@MainActivity, PasswordActivity::class.java))
+                    false
+                }
+                R.id.setting -> {
+                    startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
                     false
                 }
                 else -> {
@@ -83,6 +68,19 @@ class MainActivity : AppCompatActivity(), NoteListFragment.Callbacks, NoteFragme
         }
 
         checkBiometricSupport()
+
+        //判断用户是否已经设置过偏好主题
+        val settingsPreferences: SharedPreferences =
+            getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val darkTheme: String? = settingsPreferences.getString("dark_theme", null);
+        if (darkTheme == null) {
+            settingsPreferences.edit().apply {
+                putString("dark_theme", "default")
+                apply()
+            }
+        } else {
+            setDarkTheme(darkTheme)
+        }
     }
 
     override fun onNoteSelected(noteId: UUID, isEncrypted: Boolean) {
@@ -99,6 +97,25 @@ class MainActivity : AppCompatActivity(), NoteListFragment.Callbacks, NoteFragme
                 AuthenticationCallback(noteId)
             )
         } else {
+            val fragment = NoteFragment.newInstance(noteId)
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+    }
+
+    private inner class AuthenticationCallback(private val noteId: UUID) :
+        BiometricPrompt.AuthenticationCallback() {
+        override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
+            super.onAuthenticationError(errorCode, errString)
+            notifyUser("Authentication Error: $errString")
+        }
+
+        override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
+            super.onAuthenticationSucceeded(result)
+            //验证通过跳转
             val fragment = NoteFragment.newInstance(noteId)
             supportFragmentManager
                 .beginTransaction()
