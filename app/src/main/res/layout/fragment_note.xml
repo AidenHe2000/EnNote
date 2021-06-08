@@ -10,24 +10,27 @@
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title" />
+        android:text="@string/fragment_note_note_title"
+        android:textAllCaps="false" />
 
     <EditText
         android:id="@+id/note_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter title here." />
+        android:hint="@string/fragment_note_note_title_hint" />
 
     <TextView
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="End Date" />
+        android:text="@string/fragment_note_date"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/end_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         tools:text="Wed Nov 14 11:56 EST 2018" />
 
 
@@ -35,25 +38,27 @@
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Content" />
+        android:text="@string/fragment_note_content"
+        android:textAllCaps="false" />
 
     <EditText
         android:id="@+id/note_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter content here." />
+        android:hint="@string/fragment_note_content_hint" />
 
     <TextView
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Option" />
+        android:text="@string/fragment_note_option"
+        android:textAllCaps="false" />
 
     <CheckBox
         android:id="@+id/encrypted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Encryption" />
+        android:text="@string/fragment_note_encryption" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,14 +70,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add image" />
+            android:text="@string/fragment_note_add_image"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/remove_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Remove image" />
+            android:text="@string/fragment_note_remove_image"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 

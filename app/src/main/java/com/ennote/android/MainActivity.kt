@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), NoteListFragment.Callbacks, NoteFragme
         //判断用户是否已经设置过偏好主题
         val settingsPreferences: SharedPreferences =
             getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        val darkTheme: String? = settingsPreferences.getString("dark_theme", null);
+        val darkTheme: String? = settingsPreferences.getString("dark_theme", null)
         if (darkTheme == null) {
             settingsPreferences.edit().apply {
                 putString("dark_theme", "default")

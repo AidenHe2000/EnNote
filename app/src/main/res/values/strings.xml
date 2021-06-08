@@ -1,21 +1,35 @@
 <resources>
     <string name="app_name">EnNote</string>
 
-    <string name="special_symbols">!@#$%^&amp;*</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <!--fragment_note-->
+    <string name="fragment_note_note_title">Title</string>
+    <string name="fragment_note_note_title_hint">Enter title here.</string>
+    <string name="fragment_note_date">End Date</string>
+    <string name="fragment_note_content">Content</string>
+    <string name="fragment_note_content_hint">Enter content here.</string>
+    <string name="fragment_note_option">Option</string>
+    <string name="fragment_note_encryption">Encryption</string>
+    <string name="fragment_note_add_image">Add image</string>
+    <string name="fragment_note_remove_image">Remove image</string>
+    <string name="fragment_note_menu_delete">Delete</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <!--navigation_view-->
+    <string name="navigation_view_menu_note">Notes</string>
+    <string name="navigation_view_menu_password_generator">Password Generator</string>
+    <string name="navigation_view_menu_setting">Setting</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <!--activity_password-->
+    <string name="activity_password_regenerate">Regenerate</string>
+    <string name="activity_password_copy">Copy</string>
+    <string name="activity_password_configuration">Configuration</string>
+    <string name="activity_password_uppercase">A-Z</string>
+    <string name="activity_password_lowercase">a-z</string>
+    <string name="activity_password_number">0-9</string>
+    <string name="activity_password_symbol">!@#$%^&amp;*</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!--activity_settings-->
+    <string name="activity_settings_dark_theme">Dark Theme</string>
+    <string name="activity_settings_dark_theme_default">Default</string>
+    <string name="activity_settings_dark_theme_dark">Dark</string>
+    <string name="activity_settings_dark_theme_light">Light</string>
 </resources>

@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">#FB7199</color>
-    <color name="color_primary_dark">#0C1217</color>
-    <color name="text_color_primary">#000000</color>
-    <color name="text_color_primary_dark">#FFFFFF</color>
-    <color name="window_background">#F2F2F2</color>
-    <color name="window_background_dark">#313131</color>
-    <color name="navigation_bar_color">#FFFFFF</color>
-    <color name="navigation_bar_color_dark">#000000</color>
-    <color name="color_accent">#FF7288</color>
-    <color name="color_accent_dark">#483FC6</color>
+    <color name="blue_300">#64B5F6</color>
+    <color name="blue_400">#42A5F5</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="blue_600">#1E88E5</color>
+    <color name="blue_700">#1976D2</color>
+    <color name="blue_800">#1565C0</color>
+
+    <color name="teal_300">#1AC6FF</color>
+
+    <color name="grey_1">#F2F2F2</color>
+
+    <color name="black_1">#222222</color>
+    <color name="black_2">#000000</color>
+
+    <color name="red_error_dark">#B00020</color>
+    <color name="red_error_light">#EF5350</color>
+
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="list_background">#9A9A9A</color>
+
+    <color name="list_background">#7AF2F2F2</color>
 </resources>

@@ -209,7 +209,7 @@ class NoteFragment : Fragment(), DatePickerFragment.Callbacks {
         Log.d("dateToString", "$date")
         val calendar: Calendar = Calendar.getInstance()
         calendar.time = date
-        return "${calendar.get(Calendar.YEAR)} ${calendar.get(Calendar.MONTH) + 1} ${
+        return "${calendar.get(Calendar.YEAR)}-${calendar.get(Calendar.MONTH) + 1}-${
             calendar.get(
                 Calendar.DAY_OF_MONTH
             )

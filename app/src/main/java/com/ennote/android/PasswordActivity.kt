@@ -94,4 +94,8 @@ class PasswordActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        passwordGenerator.reset()
+    }
 }

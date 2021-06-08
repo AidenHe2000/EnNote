@@ -85,4 +85,12 @@ object Password {
 
         return stringBuilder.toString()
     }
+
+    fun reset() {
+        length = 5
+        upperCase = false
+        lowerCase = false
+        number = false
+        symbol = false
+    }
 }
